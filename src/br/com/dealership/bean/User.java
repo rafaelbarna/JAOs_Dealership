@@ -1,24 +1,20 @@
 package br.com.dealership.bean;
 
-public class User {
+public abstract class User {
 
-	private Long id;
+	private Integer id;
 	private String name;
 	private String login;
 	private String password;
 	
-	public User() {
-	}
-	
-	public User(Long id, String name, String login, String password) {
-		super();
+	public User(Integer id, String name, String login, String password) {
 		this.id = id;
 		this.name = name;
 		this.login = login;
 		this.password = password;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -34,7 +30,7 @@ public class User {
 		return password;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

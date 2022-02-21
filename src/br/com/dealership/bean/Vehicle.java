@@ -3,31 +3,30 @@ package br.com.dealership.bean;
 public class Vehicle {
 
 	// Attributes
-	private Long id;
-	private String licensePlate;
+	private Integer id;
 	private String category;
-	private Double total;
-	private Integer manufacturingYear;
-	private String model;
+	private String licensePlate;
 	private String brand;
+	private String model;
+	private String manufacturingYear;
+	private Float total;
 	
 	// Methods
 	public Vehicle() {
 	}
 	
-	public Vehicle(Long id, String licensePlate, String category, Double total, Integer manufacturingYear, String model, String brand) {
+	public Vehicle(String category, String licensePlate, String brand, String model, String manufacturingYear, Float total) {
 		super();
-		this.id = id;
-		this.licensePlate = licensePlate;
 		this.category = category;
-		this.total = total;
-		this.manufacturingYear = manufacturingYear;
-		this.model = model;
+		this.licensePlate = licensePlate;
 		this.brand = brand;
+		this.model = model;
+		this.manufacturingYear = manufacturingYear;
+		this.total = total;
 	}
 	
 	// Getters and Setters
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 	
@@ -39,11 +38,11 @@ public class Vehicle {
 		return category;
 	}
 
-	public Double getTotal() {
+	public Float getTotal() {
 		return total;
 	}
 
-	public Integer getManufacturingYear() {
+	public String getManufacturingYear() {
 		return manufacturingYear;
 	}
 
@@ -55,7 +54,7 @@ public class Vehicle {
 		return brand;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
@@ -67,11 +66,11 @@ public class Vehicle {
 		this.category = category;
 	}
 
-	public void setTotal(Double total) {
+	public void setTotal(Float total) {
 		this.total = total;
 	}
 
-	public void setManufacturingYear(Integer manufacturingYear) {
+	public void setManufacturingYear(String manufacturingYear) {
 		this.manufacturingYear = manufacturingYear;
 	}
 
