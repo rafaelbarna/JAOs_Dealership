@@ -54,8 +54,4 @@ public class Menu {
 					);
 			System.out.format("+-----+----------+------------+-----------------+-----------------+----------+--------------+%n");
 	}
-
-	public static void newVehicle(Vehicle vehicle) {
-
-	}
 }

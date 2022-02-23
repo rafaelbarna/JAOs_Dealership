@@ -4,14 +4,17 @@ public abstract class User {
 
 	private Integer id;
 	private String name;
+	private String phone;
 	private String login;
 	private String password;
 	
-	public User(Integer id, String name, String login, String password) {
+	public User() {
+		
+	}
+	
+	public User(Integer id, String name) {
 		this.id = id;
 		this.name = name;
-		this.login = login;
-		this.password = password;
 	}
 
 	public Integer getId() {
@@ -44,5 +47,13 @@ public abstract class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 }

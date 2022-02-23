@@ -15,8 +15,9 @@ public class Vehicle {
 	public Vehicle() {
 	}
 	
-	public Vehicle(String category, String licensePlate, String brand, String model, String manufacturingYear, Float total) {
+	public Vehicle(Integer id, String category, String licensePlate, String brand, String model, String manufacturingYear, Float total) {
 		super();
+		this.id = id;
 		this.category = category;
 		this.licensePlate = licensePlate;
 		this.brand = brand;

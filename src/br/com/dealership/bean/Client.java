@@ -1,14 +1,19 @@
 package br.com.dealership.bean;
 
-public class Admin extends User{
-	
+import br.com.dealership.utils.DB;
+
+public class Client extends User{
+
 	private String login;
 	private String password;
-
-	public Admin(Integer id, String name, String login, String password) {
+	
+	public Client() {}
+	
+	public Client(Integer id, String name, String login, String password, User client) {
 		super(id, name);
 		this.login = login;
 		this.password = password;
+		DB.newUser(2, client);
 	}
 
 	public String getLogin() {
@@ -26,6 +31,4 @@ public class Admin extends User{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 }
