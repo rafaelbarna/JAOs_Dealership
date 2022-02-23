@@ -29,9 +29,9 @@ public class Application {
 		System.out.print("PASS: ");
 		String password = scanner.next();
 		String name = "Jão Jewelles";
-		
-		Admin admin = new Admin(1, name, login, password);
-		DB.newUser(1, admin);
+
+		Admin admin = null;
+		admin = new Admin(1, name, login, password, admin);
 
 		do {
 			menu.mainMenu();
@@ -46,26 +46,15 @@ public class Application {
 				System.out.println("\n~~ CLIENT SYS ~~");
 				System.out.print("Registered USER (Y/N): ");
 				String registeredUser = scanner.next();
+
 				if (registeredUser.equals("Y")) {
 					System.out.print("ID: ");
 					Integer clientID = scanner.nextInt();
 
 					User client = DB.searchClient(clientID);
-					
+
 					if (client == null) {
 						System.out.println("REGISTRATION REQUIRED");
-						
-						System.out.print("ID: ");
-						Integer id = scanner.nextInt();
-						System.out.print("NAME: ");
-						name = scanner.next();
-						login = name;
-						System.out.print("PASSWORD: ");
-						password = scanner.next();
-						
-						client = new Client(id, name, login, password, client);
-						
-						System.out.println("SUCESSFULLY REGISTERED");
 						break;
 					}
 
@@ -73,6 +62,25 @@ public class Application {
 					Integer vehicleID = scanner.nextInt();
 					vehicles.get(vehicleID);
 					continue;
+				}
+
+				else if (registeredUser.equals("N")) {
+					System.out.print("ID: ");
+					Integer id = scanner.nextInt();
+					System.out.print("NAME: ");
+					name = scanner.next();
+					login = name;
+					System.out.print("PASSWORD: ");
+					password = scanner.next();
+
+					Client client = null;
+					client = new Client(id, name, login, password, client);
+
+					System.out.println("SUCESSFULLY REGISTERED");
+					break;
+				} else {
+					System.out.println("INVALID OPTION");
+					break;
 				}
 
 			case 3:
