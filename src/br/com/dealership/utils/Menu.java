@@ -19,9 +19,9 @@ public class Menu {
 	public static void menuDealership(List<Vehicle> vehicles) {
 
 		String formatter = "| %d   | %s      | %s   | %s          | %s     | %s              | %.2f | %n";
-		System.out.format("+-----+----------+------------+-----------------+-----------------+----------+--------------+%n");
-		System.out.printf("| #   | CATEGORY | PLATE      | BRAND           | MODEL           | YEAR     | PRICE        |%n");
-		System.out.format("+-----+----------+------------+-----------------+-----------------+----------+--------------+%n");
+		System.out.format("+-----+----------+------------+-----------------+--------------------+----------+--------------+%n");
+		System.out.printf("| #   | CATEGORY | PLATE      | BRAND           | MODEL              | YEAR     | PRICE        |%n");
+		System.out.format("+-----+----------+------------+-----------------+--------------------+----------+--------------+%n");
 		for (Vehicle vehicle : vehicles) {
 			System.out.format(formatter,
 					vehicle.getId(),
@@ -39,9 +39,9 @@ public class Menu {
 	public static void menuDealership(Vehicle vehicle) {
 
 		String formatter = "| %d   | %s      | %s   | %s          | %s     | %s              | %.2f | %n";
-		System.out.format("+-----+----------+------------+-----------------+-----------------+----------+--------------+%n");
-		System.out.printf("| #   | CATEGORY | PLATE      | BRAND           | MODEL           | YEAR     | PRICE        |%n");
-		System.out.format("+-----+----------+------------+-----------------+-----------------+----------+--------------+%n");
+		System.out.format("+-----+----------+------------+-----------------+--------------------+----------+--------------+%n");
+		System.out.printf("| #   | CATEGORY | PLATE      | BRAND           | MODEL              | YEAR     | PRICE        |%n");
+		System.out.format("+-----+----------+------------+-----------------+--------------------+----------+--------------+%n");
 
 			System.out.format(formatter,
 					vehicle.getId(),

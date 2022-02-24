@@ -9,13 +9,13 @@ public class Vehicle {
 	private String brand;
 	private String model;
 	private String manufacturingYear;
-	private Float total;
+	private Double total;
 	
 	// Methods
 	public Vehicle() {
 	}
 	
-	public Vehicle(Integer id, String category, String licensePlate, String brand, String model, String manufacturingYear, Float total) {
+	public Vehicle(Integer id, String category, String licensePlate, String brand, String model, String manufacturingYear, Double total) {
 		super();
 		this.id = id;
 		this.category = category;
@@ -39,7 +39,7 @@ public class Vehicle {
 		return category;
 	}
 
-	public Float getTotal() {
+	public Double getTotal() {
 		return total;
 	}
 
@@ -67,7 +67,7 @@ public class Vehicle {
 		this.category = category;
 	}
 
-	public void setTotal(Float total) {
+	public void setTotal(Double total) {
 		this.total = total;
 	}
 

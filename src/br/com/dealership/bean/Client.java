@@ -4,13 +4,19 @@ public class Client extends User{
 
 	private String login;
 	private String password;
+	private Double money;
 	
 	public Client() {}
 	
-	public Client(Integer id, String name, String login, String password) {
+	public Client(Integer id, String name, String login, String password, Double money) {
 		super(id, name);
 		this.login = login;
 		this.password = password;
+		this.money = money;
+	}
+	
+	public Double getMoney() {
+		return money;
 	}
 
 	public String getLogin() {

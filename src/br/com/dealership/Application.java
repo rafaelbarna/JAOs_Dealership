@@ -20,8 +20,7 @@ public class Application {
 		Menu menu = new Menu();
 
 		List<Vehicle> vehicles = new ArrayList<>();
-//		List<User> users = new ArrayList<>();
-		vehicles.add(new Vehicle(1, "NEW", "OPU42MAG", "QUADRA", "TURBO-R V-TECH", "2077", 100000.00F));
+		vehicles.add(new Vehicle(1, "NEW", "OPU42MAG", "QUADRA", "TURBO-R V-TECH", "2077", 100000.00));
 
 		System.out.println("ADMIN SYS");
 		System.out.print("LOGIN: ");
@@ -73,7 +72,9 @@ public class Application {
 						String sellVehicle = scanner.next();
 
 						if (sellVehicle.equals("Y")) {
+							Double total = selectedVehicle.getTotal();
 							vehicles.remove(selectedVehicle);
+							
 						} else {
 							break;
 						}
@@ -89,10 +90,11 @@ public class Application {
 					login = name;
 					System.out.print("PASSWORD: ");
 					password = scanner.next();
+					Double money = 1000000.00;
 
 					Client client = null;
-					client = new Client(id, name, login, password);
-					DB.newUser(2, client);
+					client = new Client(id, name, login, password, money);
+					DB.newUser(id, client);
 
 					System.out.println("-- SUCESSFULLY REGISTERED --");
 					break;
@@ -103,7 +105,7 @@ public class Application {
 
 			case 3:
 				System.out.print("~~ ADMIN SYS ~~");
-				System.out.print("LOGIN: ");
+				System.out.print("\nLOGIN: ");
 				String login2 = scanner.next();
 				System.out.print("PASSWORD: ");
 				String password2 = scanner.next();
@@ -116,19 +118,19 @@ public class Application {
 					Integer id = scanner.nextInt();
 
 					System.out.print("CATEGORY: ");
-					String category = scanner.nextLine();
+					String category = scanner.next();
 
 					System.out.print("LICENSE PLATE: ");
-					String licensePlate = scanner.nextLine();
+					String licensePlate = scanner.next();
 
 					System.out.print("BRAND: ");
-					String brand = scanner.nextLine();
+					String brand = scanner.next();
 
 					System.out.print("MODEL: ");
-					String model = scanner.nextLine();
+					String model = scanner.next();
 
 					System.out.print("YEAR: ");
-					String year = scanner.nextLine();
+					String year = scanner.next();
 
 					System.out.print("PRICE: ");
 					Float price = scanner.nextFloat();
