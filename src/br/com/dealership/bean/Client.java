@@ -1,7 +1,5 @@
 package br.com.dealership.bean;
 
-import br.com.dealership.utils.DB;
-
 public class Client extends User{
 
 	private String login;
@@ -9,11 +7,10 @@ public class Client extends User{
 	
 	public Client() {}
 	
-	public Client(Integer id, String name, String login, String password, User client) {
+	public Client(Integer id, String name, String login, String password) {
 		super(id, name);
 		this.login = login;
 		this.password = password;
-		DB.newUser(2, client);
 	}
 
 	public String getLogin() {

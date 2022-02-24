@@ -30,8 +30,8 @@ public class Application {
 		String password = scanner.next();
 		String name = "Jão Jewelles";
 
-		Admin admin = null;
-		admin = new Admin(1, name, login, password, admin);
+		Admin admin = new Admin(1, name, login, password);
+		DB.newUser(1, admin);
 
 		do {
 			menu.mainMenu();
@@ -54,13 +54,30 @@ public class Application {
 					User client = DB.searchClient(clientID);
 
 					if (client == null) {
-						System.out.println("REGISTRATION REQUIRED");
+						System.out.println("-- REGISTRATION REQUIRED --");
 						break;
 					}
 
-					System.out.print("ID OF VEHICLE: ");
+					System.out.print("\n--USER FOUND--");
+					System.out.println("\nVEHICLE ID: ");
 					Integer vehicleID = scanner.nextInt();
-					vehicles.get(vehicleID);
+
+					Vehicle selectedVehicle = null;
+					for (Vehicle vehicle : vehicles) {
+						if (vehicle.getId().equals(vehicleID)) {
+							selectedVehicle = vehicle;
+						}
+						Menu.menuDealership(selectedVehicle);
+
+						System.out.println("ACCEPT TRANSACTION (Y/N)");
+						String sellVehicle = scanner.next();
+
+						if (sellVehicle.equals("Y")) {
+							vehicles.remove(selectedVehicle);
+						} else {
+							break;
+						}
+					}
 					continue;
 				}
 
@@ -74,12 +91,13 @@ public class Application {
 					password = scanner.next();
 
 					Client client = null;
-					client = new Client(id, name, login, password, client);
+					client = new Client(id, name, login, password);
+					DB.newUser(2, client);
 
-					System.out.println("SUCESSFULLY REGISTERED");
+					System.out.println("-- SUCESSFULLY REGISTERED --");
 					break;
 				} else {
-					System.out.println("INVALID OPTION");
+					System.out.println("-- INVALID OPTION --");
 					break;
 				}
 
@@ -97,28 +115,28 @@ public class Application {
 					System.out.print("ID: ");
 					Integer id = scanner.nextInt();
 
-					System.out.print("CATEGORY:  ");
+					System.out.print("CATEGORY: ");
 					String category = scanner.nextLine();
 
-					System.out.print("LICENSE PLATE:  ");
+					System.out.print("LICENSE PLATE: ");
 					String licensePlate = scanner.nextLine();
 
-					System.out.print("BRAND:  ");
+					System.out.print("BRAND: ");
 					String brand = scanner.nextLine();
 
-					System.out.print("MODEL:  ");
+					System.out.print("MODEL: ");
 					String model = scanner.nextLine();
 
-					System.out.print("YEAR:  ");
+					System.out.print("YEAR: ");
 					String year = scanner.nextLine();
 
-					System.out.print("PRICE:  ");
+					System.out.print("PRICE: ");
 					Float price = scanner.nextFloat();
 
 					vehicles.add(new Vehicle(id, category, licensePlate, brand, model, year, price));
 
 				} else {
-					System.out.println("LOGIN FAILED");
+					System.out.println("-- LOGIN FAILED --");
 				}
 				break;
 			}
