@@ -9,13 +9,13 @@ public class Vehicle {
 	private String brand;
 	private String model;
 	private String manufacturingYear;
-	private Double total;
+	private Double price;
 	
 	// Methods
 	public Vehicle() {
 	}
 	
-	public Vehicle(Integer id, String category, String licensePlate, String brand, String model, String manufacturingYear, Double total) {
+	public Vehicle(Integer id, String category, String licensePlate, String brand, String model, String manufacturingYear, Double price) {
 		super();
 		this.id = id;
 		this.category = category;
@@ -23,7 +23,7 @@ public class Vehicle {
 		this.brand = brand;
 		this.model = model;
 		this.manufacturingYear = manufacturingYear;
-		this.total = total;
+		this.price = price;
 	}
 	
 	// Getters and Setters
@@ -39,8 +39,8 @@ public class Vehicle {
 		return category;
 	}
 
-	public Double getTotal() {
-		return total;
+	public Double getPrice() {
+		return price;
 	}
 
 	public String getManufacturingYear() {
@@ -67,8 +67,8 @@ public class Vehicle {
 		this.category = category;
 	}
 
-	public void setTotal(Double total) {
-		this.total = total;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
 	public void setManufacturingYear(String manufacturingYear) {

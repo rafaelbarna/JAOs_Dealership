@@ -13,6 +13,7 @@ public class Menu {
 		System.out.println("1 - Visit Dealership");
 		System.out.println("2 - Buy a new Vehicle");
 		System.out.println("3 - Register a new Vehicle");
+		System.out.println("4 - Vehicles DB");
 		System.out.println("0 - Leave Dealership");
 	}
 
@@ -30,7 +31,7 @@ public class Menu {
 					vehicle.getBrand(),
 					vehicle.getModel(),
 					vehicle.getManufacturingYear(),
-					vehicle.getTotal()
+					vehicle.getPrice()
 					);
 		}
 		System.out.format("+-----+----------+------------+-----------------+-----------------+----------+--------------+%n");
@@ -50,8 +51,12 @@ public class Menu {
 					vehicle.getBrand(),
 					vehicle.getModel(),
 					vehicle.getManufacturingYear(),
-					vehicle.getTotal()
+					vehicle.getPrice()
 					);
 			System.out.format("+-----+----------+------------+-----------------+-----------------+----------+--------------+%n");
+	}
+	
+	public static void vehicleBD(Vehicle vehicle) {
+		
 	}
 }

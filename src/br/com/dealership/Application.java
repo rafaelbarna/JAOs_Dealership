@@ -72,9 +72,9 @@ public class Application {
 						String sellVehicle = scanner.next();
 
 						if (sellVehicle.equals("Y")) {
-							Double total = selectedVehicle.getTotal();
+							Double total = selectedVehicle.getPrice();
 							vehicles.remove(selectedVehicle);
-							
+
 						} else {
 							break;
 						}
@@ -133,17 +133,84 @@ public class Application {
 					String year = scanner.next();
 
 					System.out.print("PRICE: ");
-					Float price = scanner.nextFloat();
+					Double price = scanner.nextDouble();
 
 					vehicles.add(new Vehicle(id, category, licensePlate, brand, model, year, price));
 
 				} else {
 					System.out.println("-- LOGIN FAILED --");
+					break;
 				}
-				break;
-			}
-		}
 
+				break;
+				
+			case 4:
+				System.out.print("~~ ADMIN SYS ~~");
+				System.out.print("\nLOGIN: ");
+				login2 = scanner.next();
+				System.out.print("PASSWORD: ");
+				password2 = scanner.next();
+
+				if (login2 != login && password2 != password) {
+					System.out.println("\nVEHICLE ID: ");
+					Integer vehicleID = scanner.nextInt();
+
+					Vehicle selectedVehicle = null;
+					
+					for (Vehicle vehicle : vehicles) {
+						if (vehicle.getId().equals(vehicleID)) {
+							selectedVehicle = vehicle;
+						}
+						Menu.menuDealership(selectedVehicle);
+						System.out.println("\nID / CATEGORY / LICENSEPLATE / BRAND / MODEL / YEAR / PRICE");
+						String selectDBCategoryChange = scanner.next();
+						if(selectDBCategoryChange.equals("ID")) {
+							System.out.print("ID: ");
+							int id = scanner.nextInt();
+							selectedVehicle.setId(id);
+						}
+						else if(selectDBCategoryChange.equals("CATEGORY")) {
+							System.out.print("CATEGORY: ");
+							String category = scanner.next();
+							selectedVehicle.setCategory(category);
+						}
+						else if(selectDBCategoryChange.equals("LICENSEPLATE")) {
+							System.out.print("LICENSE PLATE: ");
+							String licensePlate = scanner.next();
+							selectedVehicle.setlicensePlate(licensePlate);
+						}
+						else if(selectDBCategoryChange.equals("BRAND")) {
+							System.out.print("BRAND: ");
+							String brand = scanner.next();
+							selectedVehicle.setBrand(brand);
+						}
+						else if(selectDBCategoryChange.equals("MODEL")) {
+							System.out.print("MODEL: ");
+							String model = scanner.next();
+							selectedVehicle.setModel(model);
+						}
+						else if(selectDBCategoryChange.equals("YEAR")) {
+							System.out.print("YEAR: ");
+							String year = scanner.next();
+							selectedVehicle.setManufacturingYear(year);
+						}
+						else if(selectDBCategoryChange.equals("PRICE")) {
+							System.out.print("PRICE: ");
+							Double price = scanner.nextDouble();
+							selectedVehicle.setPrice(price);
+						}
+						else {
+							System.out.println("ERROR - INVALID OPTION");
+							break;
+						}
+						
+						System.out.print("~~ DATABASE UPDATED ~~");
+						System.out.print("SELECTED VEHICLE: " + selectedVehicle + " OPTION: " + selectDBCategoryChange);
+					}
+				}
+			}
+
+		}
 		while (menuSelection != 0);
 
 		scanner.close();
